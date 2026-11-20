@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ c.site_name }} · الهندسة الإسلامية والزخارف العربية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --g900:#2F4A3A; --g700:#4F7A5E; --g500:#7FA88A; --g200:#C9DCCB;
+  --b50:#FBF7F0; --b100:#F3EADB; --b300:#DCC9A8;
+  --text:#2B2B26; --muted:#6B6F62; --shadow:0 10px 30px rgba(47,74,58,.12);
+  --star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='none' stroke='%234F7A5E' stroke-opacity='.16'%3E%3Cpath d='M40 0 L52 28 L80 40 L52 52 L40 80 L28 52 L0 40 L28 28 Z'/%3E%3Cpath d='M40 14 L46 34 L66 40 L46 46 L40 66 L34 46 L14 40 L34 34 Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { font-family:'Cairo',system-ui,sans-serif; color:var(--text); background:var(--b50); line-height:1.8; }
+a { color:inherit; text-decoration:none; }
+section { padding:110px 8vw; position:relative; }
+.wrap { max-width:1200px; margin:0 auto; }
+.eyebrow { color:var(--g700); font-weight:600; font-size:.9rem; letter-spacing:1px; }
+h1,h2,h3 { line-height:1.3; color:var(--g900); font-weight:700; }
+h2 { font-size:clamp(1.9rem,3.6vw,2.8rem); margin:10px 0 18px; }
+.lead { color:var(--muted); max-width:640px; font-size:1.05rem; }
+.pattern { background-image:var(--star); background-size:80px 80px; }
+.btn { display:inline-block; padding:12px 26px; border-radius:999px; border:none; cursor:pointer; font-family:inherit; font-weight:600; font-size:.95rem; transition:transform .2s, box-shadow .2s; }
+.btn:hover { transform:translateY(-2px); box-shadow:var(--shadow); }
+.btn-primary { background:linear-gradient(135deg,var(--g700),var(--g900)); color:#fff; }
+.btn-ghost { color:var(--g900); border:1.5px solid var(--g700); }
+
+header { position:fixed; top:0; inset-inline:0; z-index:50; padding:0 8vw; background:rgba(251,247,240,.92); backdrop-filter:blur(10px); border-bottom:1px solid rgba(47,74,58,.08); }
+.nav { display:flex; align-items:center; justify-content:space-between; height:72px; }
+.logo { font-weight:700; font-size:1.15rem; color:var(--g900); }
+.logo span { color:var(--b300); }
+nav ul { display:flex; gap:26px; list-style:none; }
+nav a { font-size:.95rem; }
+nav a:hover { color:var(--g700); }
+
+.hero { min-height:100vh; display:grid; align-items:center; padding-top:130px;
+  background: radial-gradient(circle at 12% 18%, rgba(201,220,203,.8), transparent 45%),
+              radial-gradient(circle at 88% 82%, rgba(220,201,168,.7), transparent 50%),
+              linear-gradient(160deg, var(--b50), var(--b100)); }
+.hero .wrap { display:grid; grid-template-columns:1.1fr .9fr; gap:60px; align-items:center; }
+.hero h1 { font-size:clamp(2.4rem,6vw,4.4rem); margin:14px 0 22px; }
+.hero-actions { display:flex; gap:14px; flex-wrap:wrap; margin-top:34px; }
+.emblem { aspect-ratio:1; border-radius:50%; background:radial-gradient(circle,var(--b50) 55%,var(--b100)); box-shadow:var(--shadow); max-width:480px; width:100%; justify-self:center; display:grid; place-items:center; }
+.emblem svg { width:82%; height:auto; }
+
+.about { background:#fff; }
+.about .wrap { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
+.quote-box { border-inline-start:4px solid var(--b300); padding:20px 26px; background:var(--b50); border-radius:0 16px 16px 0; font-size:1.15rem; color:var(--g900); }
+.stats { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:30px; }
+.stat { background:var(--b50); border-radius:18px; padding:22px 12px; text-align:center; }
+.stat strong { display:block; font-size:1.9rem; color:var(--g700); }
+.stat span { color:var(--muted); font-size:.88rem; }
+
+.big-cards { display:grid; grid-template-columns:1fr 1fr; gap:26px; margin-top:46px; }
+.big-card { position:relative; border-radius:26px; min-height:380px; overflow:hidden; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; padding:36px; transition:transform .3s, box-shadow .3s; }
+.big-card:hover { transform:translateY(-6px); box-shadow:var(--shadow); }
+.big-card::before { content:""; position:absolute; inset:0; background-image:var(--star); background-size:60px; }
+.big-card::after { content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(30,44,36,.85), rgba(30,44,36,.1) 60%); }
+.big-card > * { position:relative; z-index:1; }
+.big-card:nth-child(4n+1) { background:linear-gradient(150deg,#4F7A5E,#2F4A3A); }
+.big-card:nth-child(4n+2) { background:linear-gradient(150deg,#DCC9A8,#A8906A); }
+.big-card:nth-child(4n+3) { background:linear-gradient(150deg,#7FA88A,#2F4A3A); }
+.big-card:nth-child(4n+4) { background:linear-gradient(150deg,#C9DCCB,#7FA88A); }
+.big-card h3 { color:#fff; font-size:1.7rem; }
+.big-card p { color:#E7E0CF; font-size:.95rem; margin-top:6px; }
+.big-card .more { display:inline-block; margin-top:16px; font-weight:600; border-bottom:1px solid rgba(255,255,255,.6); align-self:flex-start; }
+
+.islamic { background:#fff; }
+.isl-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:46px; }
+.isl-item { margin:0; border-radius:20px; overflow:hidden; background:var(--b100); box-shadow:0 4px 16px rgba(47,74,58,.08); transition:transform .25s; }
+.isl-item:hover { transform:translateY(-5px); }
+.isl-item img { width:100%; height:280px; object-fit:cover; display:block; }
+.isl-item figcaption { padding:14px 18px; font-size:.92rem; color:var(--g900); font-weight:600; }
+
+.services { background:linear-gradient(180deg,var(--b50),var(--b100)); }
+.svc-list { display:grid; grid-template-columns:repeat(2,1fr); margin-top:50px; border-top:1px solid rgba(47,74,58,.12); }
+.svc { padding:34px 10px; border-bottom:1px solid rgba(47,74,58,.12); display:grid; grid-template-columns:70px 1fr; gap:16px; }
+.svc .n { color:var(--b300); font-size:1.8rem; font-weight:700; }
+.svc h3 { font-size:1.2rem; margin-bottom:6px; }
+.svc p { color:var(--muted); font-size:.94rem; }
+
+.process { background:var(--g900); }
+.process h2, .process h3 { color:#fff; }
+.process .eyebrow { color:var(--b300); }
+.process .lead { color:#B8CBBD; }
+.steps { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:50px; }
+.step { border-top:2px solid var(--b300); padding-top:22px; color:#B8CBBD; }
+.step .num { font-size:2rem; color:var(--b300); font-weight:700; }
+.step h3 { margin:8px 0; font-size:1.1rem; color:#fff; }
+.step p { font-size:.92rem; }
+
+.testi { background:var(--b50); }
+.testi .wrap { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:46px; }
+.quote { background:#fff; border-radius:22px; padding:32px; box-shadow:0 4px 16px rgba(47,74,58,.06); }
+.quote strong { display:block; margin-top:18px; color:var(--g700); font-size:.92rem; }
+
+.contact { background:linear-gradient(160deg,var(--b100),var(--b50)); }
+.contact .wrap { display:grid; grid-template-columns:1fr 1.2fr; gap:60px; align-items:start; }
+.info div { margin-bottom:24px; }
+.info strong { display:block; color:var(--g900); }
+.info span { color:var(--muted); }
+.social { display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
+.social a { padding:12px 22px; border-radius:999px; background:#fff; color:var(--g900); font-weight:600; box-shadow:0 4px 14px rgba(47,74,58,.08); }
+.form { background:#fff; border-radius:26px; padding:40px; box-shadow:var(--shadow); }
+.field { margin-bottom:18px; }
+.field label { display:block; font-size:.9rem; margin-bottom:6px; color:var(--g900); font-weight:600; }
+.field input, .field select, .field textarea { width:100%; padding:13px 16px; border-radius:12px; border:1.5px solid var(--g200); background:var(--b50); font-family:inherit; font-size:.95rem; color:var(--text); }
+.field textarea { min-height:120px; resize:vertical; }
+.form-msg { margin-top:14px; color:var(--g700); font-weight:600; }
+
+footer { background:var(--g900); color:#B8CBBD; padding:60px 8vw 28px; }
+.foot { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px; }
+footer h4 { color:#fff; margin-bottom:12px; font-size:1.1rem; }
+footer a { display:block; font-size:.92rem; margin-bottom:8px; }
+footer a:hover { color:var(--b300); }
+.copy { text-align:center; margin-top:44px; padding-top:20px; border-top:1px solid rgba(255,255,255,.1); font-size:.85rem; color:#94AA9A; }
+
+@media (max-width:960px) {
+  section { padding:80px 6vw; }
+  nav ul { display:none; }
+  .hero .wrap, .about .wrap, .contact .wrap, .foot { grid-template-columns:1fr; }
+  .emblem { max-width:320px; }
+  .isl-grid, .steps { grid-template-columns:1fr 1fr; }
+  .testi .wrap { grid-template-columns:1fr; }
+}
+@media (max-width:620px) {
+  .big-cards, .svc-list, .isl-grid, .steps { grid-template-columns:1fr; }
+  .big-card { min-height:320px; padding:26px; }
+  .stats { grid-template-columns:1fr; }
+  .hero-actions .btn { width:100%; text-align:center; }
+  .form { padding:24px; }
+  .isl-item img { height:230px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav wrap">
+    <a href="#home" class="logo">{{ c.site_name }}</a>
+    <nav>
+      <ul>
+        <li><a href="#about">عنّا</a></li>
+        <li><a href="#projects">المشاريع</a></li>
+        {% if c.gallery %}<li><a href="#islamic">التفاصيل الإسلامية</a></li>{% endif %}
+        <li><a href="#services">الخدمات</a></li>
+        <li><a href="#process">منهجيتنا</a></li>
+        <li><a href="#contact">تواصل</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn btn-primary">ابدأ مشروعك</a>
+  </div>
+</header>
+
+<section class="hero pattern" id="home" style="background-size:80px 80px, auto, auto;">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">الهندسة الإسلامية · الزخارف العربية · العمارة المعاصرة</div>
+      <h1>{{ c.hero_title }}</h1>
+      <p class="lead">{{ c.hero_text }}</p>
+      <div class="hero-actions">
+        <a href="{{ c.showcase_url }}" class="btn btn-primary" target="_blank" rel="noopener">استعرض المشاريع</a>
+        <a href="#contact" class="btn btn-ghost">احجز استشارة</a>
+      </div>
+    </div>
+    <div class="emblem" aria-hidden="true">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#2F4A3A" stroke-width="1.2">
+          <polygon points="100,10 124,70 186,70 136,106 156,166 100,130 44,166 64,106 14,70 76,70"/>
+          <polygon points="100,40 116,78 158,78 124,100 136,140 100,118 64,140 76,100 42,78 84,78"/>
+          <circle cx="100" cy="100" r="36" stroke="#C9B088"/>
+          <circle cx="100" cy="100" r="62" stroke-opacity=".4"/>
+          <circle cx="100" cy="100" r="88" stroke-opacity=".25"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">من نحن</div>
+      <h2>تراث يُعاد تفسيره بعين معاصرة</h2>
+      <p class="lead">{{ c.about_text }}</p>
+      <div class="stats">
+        {% for value, label in stats %}
+        <div class="stat"><strong>{{ value }}</strong><span>{{ label }}</span></div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="quote-box">"{{ c.about_quote }}"</div>
+  </div>
+</section>
+
+<section class="pattern" id="projects" style="background-color:var(--b50); background-size:80px 80px;">
+  <div class="wrap">
+    <div class="eyebrow">مشاريعنا</div>
+    <h2>شاهد أعمالنا كاملة</h2>
+    <p class="lead">مشاريع معمارية وتصاميم داخلية ومشاهد ريندر، مصنفة حسب النوع في معرضنا الكامل.</p>
+    <div class="big-cards">
+      {% for title, text in categories %}
+      <a class="big-card" href="{{ c.showcase_url }}" target="_blank" rel="noopener">
+        <h3>{{ title }}</h3>
+        <p>{{ text }}</p>
+        <span class="more">شاهد المشاريع</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% if c.gallery %}
+<section class="islamic" id="islamic">
+  <div class="wrap">
+    <div class="eyebrow">التفاصيل الإسلامية</div>
+    <h2>الزخرفة في قلب العمارة</h2>
+    <p class="lead">مشربيات وأقواس ونجوم هندسية، بين واجهات خارجية وفراغات داخلية.</p>
+    <div class="isl-grid">
+      {% for img in c.gallery %}
+      <figure class="isl-item">
+        <img src="{{ url_for('static', filename='uploads/' ~ img.file) }}" alt="{{ img.caption }}" loading="lazy">
+        <figcaption>{{ img.caption }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="eyebrow">خدماتنا</div>
+    <h2>من الفكرة إلى التنفيذ</h2>
+    <div class="svc-list">
+      {% for title, text in services %}
+      <div class="svc">
+        <div class="n">{{ "%02d" % loop.index }}</div>
+        <div><h3>{{ title }}</h3><p>{{ text }}</p></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="eyebrow">منهجيتنا</div>
+    <h2>كيف نعمل معك</h2>
+    <div class="steps">
+      {% for title, text in process %}
+      <div class="step">
+        <div class="num">{{ "%02d" % loop.index }}</div>
+        <h3>{{ title }}</h3>
+        <p>{{ text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="testi" id="testimonials">
+  <div class="wrap">
+    {% for quote, name in testimonials %}
+    <div class="quote"><p>"{{ quote }}"</p><strong>{{ name }}</strong></div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">تواصل معنا</div>
+      <h2>لنبدأ مشروعك</h2>
+      <p class="lead">أرسل تفاصيل فكرتك، وسنعود إليك خلال 24 ساعة لتحديد موعد استشارة.</p>
+      <div class="info" style="margin-top:32px">
+        <div><strong>الهاتف</strong><span>{{ c.phone }}</span></div>
+        <div><strong>البريد</strong><span>{{ c.email }}</span></div>
+        <div><strong>المكتب</strong><span>{{ c.address }}</span></div>
+      </div>
+      <div class="social">
+        <a href="{{ c.instagram }}" target="_blank" rel="noopener">إنستغرام</a>
+        <a href="{{ c.facebook }}" target="_blank" rel="noopener">فيسبوك</a>
+      </div>
+    </div>
+    <form class="form" method="post" action="{{ url_for('contact') }}">
+      <div class="field"><label for="name">الاسم</label><input id="name" name="name" required placeholder="اسمك الكامل"></div>
+      <div class="field"><label for="email">البريد الإلكتروني</label><input id="email" name="email" type="email" required placeholder="name@email.com"></div>
+      <div class="field"><label for="service">نوع الخدمة</label>
+        <select id="service" name="service">
+          <option>تصميم معماري</option>
+          <option>تصميم داخلي</option>
+          <option>زخارف معمارية</option>
+          <option>ريندر ثلاثي الأبعاد</option>
+          <option>استشارة</option>
+        </select>
+      </div>
+      <div class="field"><label for="msg">تفاصيل المشروع</label><textarea id="msg" name="msg" placeholder="الموقع، المساحة، الأسلوب المطلوب..."></textarea></div>
+      <button class="btn btn-primary" style="width:100%" type="submit">أرسل الطلب</button>
+      {% if sent %}<div class="form-msg">شكراً لك! تم استلام طلبك وسنتواصل معك قريباً.</div>{% endif %}
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <div>
+      <h4>{{ c.site_name }}</h4>
+      <p>عمارة وتصميم داخلي وزخارف، مستوحاة من الهندسة الإسلامية.</p>
+    </div>
+    <div>
+      <h4>روابط</h4>
+      <a href="#about">عنّا</a><a href="#projects">المشاريع</a><a href="#services">الخدمات</a><a href="#contact">تواصل</a>
+    </div>
+    <div>
+      <h4>تابعنا</h4>
+      <a href="{{ c.instagram }}" target="_blank" rel="noopener">إنستغرام</a>
+      <a href="{{ c.facebook }}" target="_blank" rel="noopener">فيسبوك</a>
+    </div>
+  </div>
+  <div class="copy">© {{ now_year }} {{ c.site_name }}. جميع الحقوق محفوظة.</div>
+</footer>
+
+</body>
+</html>
